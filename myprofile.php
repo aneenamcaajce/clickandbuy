@@ -6,11 +6,11 @@
 <link rel="stylesheet" href="coe.css" type="text/css">
 <style>
 body {margin:0;}
-.dropbtn {
+.dropbtn { 
     background-color: #4d4d00;
     color: white;
     padding: 10px;
-	
+
     font-size: 10px;
     border: none;
     cursor: pointer;
@@ -149,7 +149,7 @@ li a {
     text-decoration: none;
 }
 li a:hover {
-    background-color:#000; 
+    background-color:#000;
 }
 div.header{
 text-align:center;
@@ -248,14 +248,14 @@ width:100%;
            width:500px;
            height:350px;
            margin:10px;
-         
+
           }
 .float-box{
             float:right;
             width:300px;
             height:500px;
             margin:30px;
-            
+
             }
 .float-box1{
              float:left;
@@ -272,7 +272,7 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: 1px solid #ccc;
    box-sizing: border-box;
-   
+
 }
 
 button {
@@ -308,7 +308,7 @@ span.psw {
        display: block;
        float: none;
     }
-    
+
 }
 html{
 background:url('hj.jpg') no-repeat center fixed;
