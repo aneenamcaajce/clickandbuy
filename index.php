@@ -1,23 +1,75 @@
-
 <!DOCTYPE html>
 <html>
+<title>
+CLICK AND BUY</title>
 <head>
-<title>CLICK AND BUY</title>
-<link rel="stylesheet" href="coe.css" type="text/css">
+
 <style>
 
+body {margin:0;}
+.dropbtn {
+    background-color: #4d4d00;
+    color: white;
+    padding: 10px;
+	
+    font-size: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+	margin-left:1050px;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: #8400ff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
 ul {
     list-style-type: none;
-    margin: 5;
+    margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #2441C7;
+    background-color: #7070db;
+    position: fixed;
     top: 0;
     width: 100%;
 }
+ .footer
+  {
+	  width:100%;
+	  height:20%;
+	  background-color:black;
+	  float:left;
+	  position:relative;
+	  text-align:center;
+	  color:white;
+  }
 
 li {
-    float: right;
+    float:right;
 }
 
 li a {
@@ -27,157 +79,117 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
 }
-li a:hover {
-    background-color:#000; 
-}
-div.header{
-text-align:center;
-font-family:serif;
-height:100px;
-color:green;
-background-color:white;
-margin-top:0px;
+
+li a:hover:not(.active) {
+    background-color: #1a1a00;
 }
 
-#heading{
-position:absolute;
-top:10px;
-right:20px;
-width:100%;
+.active {
+    background-color: white;
 }
-
-
-.button{
-	width:130px;
-	height:30px;
-	background-color:#4CAF50;
-	border-radius:13px;
-	cursor: pointer;
+h1 {
+    text-shadow: 2px 2px #FF0000;
 }
-.login{
-	border:black;
-	height : 400px;
-	width: 250px;
-	position: absolute;
-	left:1000px;
-	top:168px;
-	color:blue;
+p {
+    text-indent: 50px;
 }
-	.login7{
-	border:black;
-	height : 400px;
-	width: 650px;
-	position: absolute;
-	rightt:1000px;
-	top:168px;
-	color:blue;
+.left {
+    position: relative;
+    right: 0px;
+    width: 300px;
+    float:left;
+    padding: 10px;
 }
-	.login6{
-	border:black;
-	height : 400px;
-	width: 250px;
-	position: absolute;
-	right:900px;
-	top:200px;
-	color:blue;
+.right {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    float:left;
+    padding: 10px;
 }
-.footer{
-	position:absolute;
-	top:800px;
-	width:100%;
-	color:white;
-	background-color:#060001;
-	height:150px;
+  .dropdown
+{
+position: relative;
+display: inline-block;
 }
-.imagegalllery1{
-	position:absolute;
-	top:168px;
-	width:100%;
-	height:300px;
+.dropdown-content
+ {
+  z-index:2;
+  border-radius: 5px;
+  font-size:20px;
+  display: none;
+  position: absolute;
+  background-color: black;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-width:10%;
+  padding: 12px 24px;
 }
-.imagegalllery{
-	position:absolute;
-	top:600px;
-	width:100%;
-	height:300px;
-}
-.img{
-	position:absolute;
-	border: 3px solid black;
-	width:900px;
-	height:400px;
-	top:168px;
-}
-.login_pic{
-    width: 30%;
-    border-radius: 50%;
-}
-.login_image_container{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right:16px;
-    padding-left: 16px;
-}
-div.main{
-	top:570px;
-	left:500px;
-	border:.10px solid black;
-	width:700px;
-	height:400px
-}
-div.main1{
-	float:right;
-	position:absolute;
-	top:570px;
-	left:560px;
-	border:.5px solid black;
-	width:400px;
-	height:400px
-}
+.dropdown:hover .dropdown-content
+  {
+  display: block;
+  }
 </style>
 </head>
 <body>
-<div class="header">
-<h1 id="heading" align="left">&nbsp&nbsp&nbsp&nbsp<img src="photo1.jpg" border="0" id="LogoImage" alt="Herb Affair" width="130" height="70">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i>CLICK AND BUY</i></h1>
+
+
+
+<link rel="style sheet" type="text/css" href="style2.css">
+</br></br></br></br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="LOGO1.png" style="margin-left:0px"><font style="color:#555555;font-family:Agency FB;margin-right:10px">
+
+ <div class="dropdown">
+ <button class="dropbtn">Login</button>
+  <div class="dropdown-content">
+    <a href="login.php">Admin Login</a>
+    <a href="stafflog.php">Staff Login</a> 
+	<a href="studlog.php">Student Login</a>
+	<a href="admin_login.php.php">User Login</a>
+  </div>
 </div>
 
-<ul style="margin-top:2px;">
-<li><a class="active" href="registration.php">REGISTER</a></li>
-<li><a class="active" href="login1.php">LOGIN</a></li>
- <li><a class="active" href="#home">OFFERS</a></li>
- <li><a class="active" href="#home">HOME</a></li>
+
+
+<h2><font color="red"><span style="color:red;font-family:Calibri Light (Headings)"><b><pre><MARQUEE>TODAYS EXICTING OFFERS.. GRAB IT IMMEDIATELY</MARQUEE></PRE></b></span></h1>
+<body bgcolor=" white">
+
+<ul>
+ <h2> <li><a href="#contact">Contact</a></li></h2>
+  <h2><li><a href="login1.php">Login</a></li></h2>
+   <h2><li><a href="registration.php">Register</a></li></h2>
+   <h2><li><a href="index.php">Home</a></li></h2>
+  
+
 </ul>
+<center> <img src="d6.png" width="923px" height="300px">
+<h1><font color="red"><p>Todays exiting offers.Grab</p></h1>
+<p>Mamangam is a stage 
+open for explorations with great mentorship.</p>
+<p>This is a web based application that over comes the issue of managing and booking appointments according to user's choice or demand's</p>
+<p>*....................................*</p>
+<p>*....................................*</p>
+<h1><font color="red"><p>Performence Wing </p></h1>
+<p>Consumed by the spirit of dance and with the bounce it provides,
+their rhythms are purposeful and their movements inspired. They grow wings and fly around making souls dance. They take Mamangam far & wide..</p>
+ <iframe width="420" height="345" src="http://youtube.com/watch?v=6_xXy_dYKz4&spfreload=10">
+</iframe>
+<p>*....................................*</p>
+<p>*....................................*</p>
+<h1><font color="red"><p>OUr Courses </p></h1>
 
-<div class=main>
-<h1>Todays exicting offers</h1>
-<img src="jkl.jpg" width="650">
+<div class="right">
+<p> </p>
+  <p></p>
+ <div>
+<p></p>
 </div>
-<div class=main1>
-
+</ul>
+   
 </div>
-<form action="logcon.php" method="post">
-<table align="center" cellpadding="4px">
-</table></br>
-</form>
+<div class="footer"><font color="white">
+© 2016 Click and buy All rights reserved.
+</font></div>
 
-</div>
+</body> 
 
-<footer><div class="footer">
-            <table  align="center" cellpadding="10px">
-                <tr>
-                    <td width="33%">
-                        <img src="img2.jpg" alt="icon6" width="80px" height="80px"/>
-                    </td>
-                    <td width="33%">
-                        <img src="img4.jpg" alt="icon7" width="80px" height="80px"/> 
-                    </td>
-                    <td width="33%">
-                        <img src="img6.jpg" alt="icon8" width="80px" height="80px"/>
-                    </td>
-                </tr>
-            </table>
-            <i style="position:relative;top:20px;left:320px;">@2016 Amal Jyothi College of Engineering.All rights Reserved. Powered by Department of MCA 
-| <a href="#main">Top</a></i>
-        </div></footer> 
-</body>
 </html>

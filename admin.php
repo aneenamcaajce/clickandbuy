@@ -1,24 +1,94 @@
-<?php
-//include_once 'amsdb.php';
-//?>
 <!DOCTYPE html>
 <html>
+<title>
+click and buy</title>
 <head>
-<title>CLICK AND BUY</title>
-<style>
 
-ul {
-    list-style-type: none;
-    margin: 5;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    top: 0;
-    width: 100%;
+<style>
+body{
+	background-image:url(d6.png);
+	background-size:cover;
 }
 
+body {margin:0;}
+a
+{
+	font-size:20px;
+	color:white;
+  text-decoration: none;
+	font-family:Cambria;
+}
+a:hover
+{
+	color:red;
+}
+.header
+{
+	font-size:48px;
+	font-family:Vladimir Script;
+	height:50px;
+	margin-top:0px;
+	margin-bottom:20px;
+	background-color:black;
+	color:red;
+  text-shadow: 1px 1px 2px black, 0 0 100px blue, 0 0 5px darkblue;
+}
+.dropdown
+{
+position: relative;
+display: inline-block;
+}
+.dropdown-content
+ {
+	z-index:2;
+	border-radius: 5px;
+	font-size:20px;
+  display: none;
+  position: absolute;
+  background-color: black;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	box-width:10%;
+  padding: 12px 24px;
+}
+.dropdown:hover .dropdown-content
+  {
+  display: block;
+  }
+span
+{
+	color:white;
+	text-decoration:none;
+	font-family:Copperplate Gothic;
+	font-size:20px;
+	padding: 6spx 12px;
+}
+.button
+ {
+  	background-color: #ffaa00;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    margin: 1px 1px;
+    cursor: pointer;
+	border-radius:3px;
+    text-align:center;
+    margin-bottom:2px;
+	overflow:hidden;
+}
+ .footer
+  {
+	  width:100%;
+	  height:20%;
+	  background-color:black;
+	  float:left;
+	  position:relative;
+	  text-align:center;
+	  color:white;
+  }
+
 li {
-    float: right;
+    float:right;
 }
 
 li a {
@@ -28,158 +98,95 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
 }
-li a:hover {
-    background-color:#000; 
-}
-div.header{
-text-align:center;
-font-family:serif;
-height:70px;
-color:green;
-background-color:white;
-margin-top:0px;
+
+li a:hover:not(.active) {
+    background-color: #1a1a00;
 }
 
-#heading{
-position:absolute;
-top:10px;
-right:20px;
-width:100%;
+.active {
+    background-color: white;
 }
-
-
-.button{
-	width:130px;
-	height:30px;
-	background-color:#4CAF50;
-	border-radius:13px;
-	cursor: pointer;
+h1 {
+    text-shadow: 2px 2px #FF0000;
 }
-.login{
-	border:3px solid black;
-	height : 400px;
-	width: 350px;
-	position: absolute;
-	left:950px;
-	top:168px;
-	color:blue;
+p {
+    text-indent: 5px;
 }
-.footer{
-	position:absolute;
-	top:800px;
-	width:100%;
-	color:white;
-	background-color:#060001;
-	height:150px;
+.left {
+    position: relative;
+    right: 0px;
+    width: 300px;
+    float:left;
+    padding: 10px;
 }
-.imagegalllery{
-	position:absolute;
-	top:600px;
-	width:100%;
-	height:300px;
+.right {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    float:left;
+    padding: 10px;
 }
-.img{
-	position:absolute;
-	border: 3px solid black;
-	width:900px;
-	height:400px;
-	top:168px;
+  .dropdown
+{
+position: relative;
+display: inline-block;
 }
-.login_pic{
-    width: 30%;
-    border-radius: 50%;
+.dropdown-content
+ {
+	z-index:2;
+	border-radius: 5px;
+	font-size:20px;
+  display: none;
+  position: absolute;
+  background-color: black;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	box-width:10%;
+  padding: 12px 24px;
 }
-.login_image_container{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right:16px;
-    padding-left: 16px;
-}
+.dropdown:hover .dropdown-content
+  {
+  display: block;
+  }
 </style>
 </head>
 <body>
+
+
+
+<link rel="style sheet" type="text/css" href="style2.css">
+
 <div class="header">
-<h1 id="heading"><i>CLICK AND BUY</i></h1>
-</div>
+	<img src="logop.png" style="margin-left:0px">
+	Admin Home   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<a href="admin.php">Home</a>&nbsp&nbsp
+  <div class="dropdown">
+  <span><a href="#">Add</a> </span>
+  <div class="dropdown-content">
+	<a href="offers.php">offers</a>
+		<a href="product.php">products</a>
+        <a href="moderator.php">moderators</a>
+			<a href="delivery.php">delivery</a>
+            <a href="points.php">points</a>
+            <a href="winners.php">winners</a>
+               
+	</div>
+  </div>&nbsp&nbsp
+  <div class="dropdown">
+  <span><a href="#">View</a> </span>
+  <div class="dropdown-content">
+	<a href="usershow.php">Users</a>
+		<a href="offersshow.php">offers</a>
+			<a href="productview.php">products</a>
+			   <a href="moderatorshow.php">moderators</a>
+               <a href="deliveryshow.php">delivery</a>
+               <a href="pointsshow.php">points</a>
+               <a href="paymentshow.php">payments</a>
+               <a href="winnershow.php">winners</a>
+               <a href="feedbackview.php">feedback</a>
+	</div>
+  </div>
+  <span>&nbsp&nbsp <a href="logout.php">logout</a> </span>
 
-<ul style="margin-top:2px;">
-<li><a class="active" href="logout.php">LOGOUT</a></li>
-<li><a class="active" href="feedback.php">FEEDBACK</a></li>
-<li><a class="active" href="delivery.php">DELIVERY DETAILS</a></li>
-<li><a class="active" href="payment.php">PAYMENT</a></li>
-<li><a class="active" href="winners.php">WINNERS</a></li>
-<li><a class="active" href="product.php">PRODUCTS</a></li>
-<li><a class="active" href="offers.php">OFFERS</a></li>
-<li><a class="active" href="points.php">POINTS</a></li>
-<li><a class="active" href="moderator.php">MODERATORS</a></li>
-<li><a class="active" href="usershow.php">USERS</a></li>
- <li><a class="active" href="#home">OFFERS</a></li>
- <li><a class="active" href="index.php">HOME</a></li>
-</ul>
-</ul>s
+</body> 
 
-<div class= "img">
-<img src="jkl.jpg" alt="class" width="900px;" height="400px">
-</div>
-<div class="login">
-<h1 align="center"><b>WINNERS</b></h1><br>
-<marquee>congrats</marquee>
-<div class="login_image_container">
-                <center>
-                    <img src="pm.jpg" alt="loginpic" class="login_pic" id="login_pic">
-                    <img src="kl.jpg" alt="loginpic" class="login_pic" id="login_pic">
-                </center>
-</div>
-<form action="logcon.php" method="post">
-<table align="center" cellpadding="4px">
-</table></br>
-</form>
-
-</div>
-<div class="imagegalllery">
-	<table  align="center" cellpadding="10px">
-		<tr>
-			<td width="17%">
-				<img src="img2.jpg" alt="icon6" width="150px" height="150px"/>
-			</td>
-			<td width="17%">
-				<img src="img3.jpg" alt="icon7" width="150px" height="150px"/> 
-			</td>
-			<td width="17%">
-				<img src="img4.jpg" alt="icon8" width="150px" height="150px"/>
-			</td>
-			<td width="17%">
-				<img src="img5.jpg" alt="icon6" width="150px" height="150px"/>
-			</td>
-			<td width="17%">
-				<img src="img6.jpg" alt="icon7" width="150px" height="150px"/> 
-			</td>
-			<td width="17%">
-				<img src="img7.jpg" alt="icon8" width="150px" height="150px"/>
-			</td>
-			<td width="17%">
-				<img src="img8.jpg" alt="icon8" width="150px" height="150px"/>
-			</td>
-		</tr>
-	</table>
-</div>
-
-<footer><div class="footer">
-            <table  align="center" cellpadding="10px">
-                <tr>
-                    <td width="33%">
-                        <img src="img2.jpg" alt="icon6" width="80px" height="80px"/>
-                    </td>
-                    <td width="33%">
-                        <img src="img4.jpg" alt="icon7" width="80px" height="80px"/> 
-                    </td>
-                    <td width="33%">
-                        <img src="img6.jpg" alt="icon8" width="80px" height="80px"/>
-                    </td>
-                </tr>
-            </table>
-            <i style="position:relative;top:20px;left:320px;">@2016 Amal Jyothi College of Engineering.All rights Reserved. Powered by Department of MCA 
-| <a href="#main">Top</a></i>
-        </div></footer> 
-</body>
 </html>

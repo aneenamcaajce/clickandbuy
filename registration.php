@@ -7,7 +7,7 @@ $last_name=$_POST["last_name"];
 $gender=$_POST["gender"];
 $address=$_POST["address"];
 $district=$_POST["district"];
-echo "$district";
+//echo "$district";
 $sql=mysqli_query($con,"select * from tbl_district where districts='$district'");
 while($row=mysqli_fetch_array($sql)){
 	$district=$row['districtid'];
@@ -19,21 +19,151 @@ $userid=$_POST["userid"];
 $password=$_POST["password"];
 $image="image/".time()."".htmlspecialchars($_FILES['image']['name']);
 move_uploaded_file($_FILES['image']['tmp_name'],$image);
-$sql="INSERT INTO `tbl_registration`( `first_name`, `last_name`, `gender`, `address`,`district`,`place`, `pincode`,`mobile`,`image`) VALUES ('$first_name','$last_name','$gender','$address','$district','$place','$pincode','$mobile','$image')";
-print_r($sql);
-$result=mysqli_query($con,$sql);
+
 $sql1="INSERT INTO `tbl_login`(`userid`, `password`, `usertype`,`status`) VALUES ('$userid','$password','user',0)";
 print_r($sql1);
 $result1=mysqli_query($con,$sql1);
+$query=mysqli_query($con,"SELECT * FROM tbl_login WHERE `userid`='$userid'");
+while($row=mysqli_fetch_array($query)){
+	$logid=$row['login_id'];
+	$sql="INSERT INTO `tbl_registration`( `login_id`,`first_name`, `last_name`, `gender`, `address`,`district`,`place`, `pincode`,`mobile`,`image`) VALUES ($logid,'$first_name','$last_name','$gender','$address','$district','$place','$pincode','$mobile','$image')";
+	
+//print_r($sql);
+$result=mysqli_query($con,$sql);
+mysqli_query($con,"insert into `tbl_points`(`userid`,`points`) values ('$logid',20)");
+}
 
 //echo "successfully inserted";
 }
 ?>
+<!DOCTYPE html>
 <html>
-    <head>
-       <link rel="stylesheet" href="coe.css" type="text/css">
+<head>
+<title>CLICK AND BUY</title>
+<link rel="stylesheet" href="coe.css" type="text/css">
 <style>
+body {margin:0;}
+.dropbtn {
+    background-color: #4d4d00;
+    color: white;
+    padding: 10px;
+	
+    font-size: 10px;
+    border: none;
+    cursor: pointer;
+}
 
+.dropdown {
+	margin-left:1050px;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: #8400ff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #7070db;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+ .footer
+  {
+	  width:100%;
+	  height:20%;
+	  background-color:black;
+	  float:left;
+	  position:relative;
+	  text-align:center;
+	  color:white;
+  }
+
+li {
+    float:right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #1a1a00;
+}
+
+.active {
+    background-color: white;
+}
+h1 {
+    text-shadow: 2px 2px #FF0000;
+}
+p {
+    text-indent: 50px;
+}
+.left {
+    position: relative;
+    right: 0px;
+    width: 300px;
+    float:left;
+    padding: 10px;
+}
+.right {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    float:left;
+    padding: 10px;
+}
+  .dropdown
+{
+position: relative;
+display: inline-block;
+}
+.dropdown-content
+ {
+	z-index:2;
+	border-radius: 5px;
+	font-size:20px;
+  display: none;
+  position: absolute;
+  background-color: black;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	box-width:10%;
+  padding: 12px 24px;
+}
+.dropdown:hover .dropdown-content
+  {
+  display: block;
+  }
 ul {
     list-style-type: none;
     margin: 5;
@@ -130,11 +260,11 @@ width:100%;
 	height:300px;
 }
 .img{
-	position:absolute;
+	position: absolute;
 	border: 3px solid black;
-	width:900px;
-	height:400px;
-	top:168px;
+	width: 900px;
+	height: 600px;
+	top: 145px;
 }
 .login_pic{
     width: 30%;
@@ -146,62 +276,95 @@ width:100%;
     padding-right:16px;
     padding-left: 16px;
 }
+.div {
+       background-color:black;
+       height:10%;
+}
+.floating-box{
+           float:left;
+           width:500px;
+           height:350px;
+           margin:10px;
+         
+          }
+.float-box{
+            float:right;
+            width:300px;
+            height:500px;
+            margin:30px;
+            
+            }
+.float-box1{
+             float:left;
+             width:1318px;
+             height:175px;
+             margin:10px;
+             background-color:gray;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+   box-sizing: border-box;
+   
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 60%;
+}
+form {
+    border: 3px solid #f1f1f1;
+}
+
+
+
+
+
+
+.container {
+    padding: 60px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    
+}
+html{
+background:url('hj.jpg') no-repeat center fixed;
+background-size:cover;
+}
 </style>
 </head>
 <body>
-<div class="header">
-<h1 id="heading" align="left">&nbsp&nbsp&nbsp&nbsp<img src="photo1.jpg" border="0" id="LogoImage" alt="Herb Affair" width="130" height="70">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i>CLICK AND BUY</i></h1>
-</div>
+<link rel="style sheet" type="text/css" href="style2.css">
+</br></br></br></br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="LOGO1.png" style="margin-left:0px"><font style="color:#555555;font-family:Agency FB;margin-right:10px">
+<ul>
+ <h2> <li><a href="#contact">Contact</a></li></h2>
+  <h2><li><a href="login1.php">Login</a></li></h2>
+   <h2><li><a href="registration.php">Register</a></li></h2>
+   <h2><li><a href="index.php">Home</a></li></h2>
+  
 
-<ul style="margin-top:2px;">
-<li><a class="active" href="registration.php">REGISTER</a></li>
-<li><a class="active" href="login1.php">LOGIN</a></li>
- <li><a class="active" href="#home">OFFERS</a></li>
- <li><a class="active" href="index.php">HOME</a></li>
 </ul>
-
-
-<div class="imagegalllery1">
-	<table  align="center" cellpadding="10px">
-		<tr>
-			<td width="17%">&nbsp;</td>
-      </tr>
-            </table>
-            </div>
-            </div>
-<style>
-div.sis3 {
-  background: transparent ;
-    position: absolute;
-    top: 200px;
-    right: 0;
-    left:500px;
-    width: 50%;
-    height: 400px;
-}</style>
-        <title>registration
-        </title>
-    </head>
-
-    <body>
-
-
-
-</div>
-
-               
-           
-
-
-</br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-
 <div class="sis3">
 <form action="#" name="myForm" id="myForm" onsubmit="return" method="post" enctype="multipart/form-data">
 <fieldset>

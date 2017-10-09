@@ -15,7 +15,8 @@ if(isset($_POST["submit"]))
 	{
 		if($fetch['usertype']=="user") // role means admin or user , for admin set to 0 and for user set to  
 		{
-			$_SESSION["userid"]=$userid;
+			$_SESSION["userid"]=$fetch['login_id'];
+			$_SESSION["email"]=$fetch['userid'];
 			//$_SESSION["id"]=$fetch['id'];
 			// setting username as session variable 
 			header("location:usershome.php");	//home page or the dashboard page to be redirected
@@ -24,9 +25,11 @@ if(isset($_POST["submit"]))
 		{
 			//$_SESSION["username"]=$username;	// setting username as session variable 
 			header("location:admin.php");
+			$_SESSION["email"]=$fetch['userid'];
 		}
 		elseif($fetch['usertype']=="moderator") // role means admin or user , for admin set to 0 and for user set to  
 		{
+			$_SESSION["email"]=$fetch['userid'];
 			//$_SESSION["username"]=$username;	// setting username as session variable 
 			header("location:admin.php");
 		}
@@ -40,7 +43,128 @@ if(isset($_POST["submit"]))
 <title>CLICK AND BUY</title>
 <link rel="stylesheet" href="coe.css" type="text/css">
 <style>
+body {margin:0;}
+.dropbtn {
+    background-color: #4d4d00;
+    color: white;
+    padding: 10px;
+	
+    font-size: 10px;
+    border: none;
+    cursor: pointer;
+}
 
+.dropdown {
+	margin-left:1050px;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: #8400ff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #7070db;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+ .footer
+  {
+	  width:100%;
+	  height:20%;
+	  background-color:black;
+	  float:left;
+	  position:relative;
+	  text-align:center;
+	  color:white;
+  }
+
+li {
+    float:right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #1a1a00;
+}
+
+.active {
+    background-color: white;
+}
+h1 {
+    text-shadow: 2px 2px #FF0000;
+}
+p {
+    text-indent: 50px;
+}
+.left {
+    position: relative;
+    right: 0px;
+    width: 300px;
+    float:left;
+    padding: 10px;
+}
+.right {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    float:left;
+    padding: 10px;
+}
+  .dropdown
+{
+position: relative;
+display: inline-block;
+}
+.dropdown-content
+ {
+	z-index:2;
+	border-radius: 5px;
+	font-size:20px;
+  display: none;
+  position: absolute;
+  background-color: black;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	box-width:10%;
+  padding: 12px 24px;
+}
+.dropdown:hover .dropdown-content
+  {
+  display: block;
+  }
 ul {
     list-style-type: none;
     margin: 5;
@@ -231,31 +355,30 @@ background-size:cover;
 </style>
 </head>
 <body>
-<div class="header">
-<h1 id="heading" align="left">&nbsp&nbsp&nbsp&nbsp<img src="photo1.jpg" border="0" id="LogoImage" alt="Herb Affair" width="130" height="70">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i>CLICK AND BUY</i></h1>
-</div>
+<link rel="style sheet" type="text/css" href="style2.css">
+</br></br></br></br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="LOGO1.png" style="margin-left:0px"><font style="color:#555555;font-family:Agency FB;margin-right:10px">
+<ul>
+ <h2> <li><a href="#contact">Contact</a></li></h2>
+  <h2><li><a href="login1.php">Login</a></li></h2>
+   <h2><li><a href="registration.php">Register</a></li></h2>
+   <h2><li><a href="index.php">Home</a></li></h2>
+  
 
-<ul style="margin-top:2px;">
-<li><a class="active" href="registration.php">REGISTER</a></li>
- <li><a class="active" href="#home">OFFERS</a></li>
- <li><a class="active" href="index.php">HOME</a></li>
 </ul>
-<div class= "img">
-<img src="jkl.jpg" alt="class" width="1500px;" height="384">
-</div>
 <div class="float-box">
-<h2>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<u><font color="orange">LOGIN</font></u></h2>
+<h2>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<u><font color="blue">LOGIN</font></u></h2>
 
 <form name="login" id="login" action="#" method="post">
 
   <div class="container">
     
-    <label><b><font color="orange">Userid</font></b></label><br>
+    <label><b><font color="blue">USER ID/EMAIL-ID</font></b></label><br>
     <input type="text" placeholder="Enter Userid" name="userid" required><br>
 
-    <label><b><font color="orange">Password</font></b></label><br>
+    <label><b><font color="blue">PASSWORD</font></b></label><br>
     <input type="password" placeholder="Enter Password" name="password" required><br>
-        
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  
     <button type="submit" name="submit">Login</button>
     </div>
   
