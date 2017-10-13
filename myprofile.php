@@ -6,11 +6,11 @@
 <link rel="stylesheet" href="coe.css" type="text/css">
 <style>
 body {margin:0;}
-.dropbtn { 
+.dropbtn {
     background-color: #4d4d00;
     color: white;
     padding: 10px;
-
+	
     font-size: 10px;
     border: none;
     cursor: pointer;
@@ -149,7 +149,7 @@ li a {
     text-decoration: none;
 }
 li a:hover {
-    background-color:#000;
+    background-color:#000; 
 }
 div.header{
 text-align:center;
@@ -248,14 +248,14 @@ width:100%;
            width:500px;
            height:350px;
            margin:10px;
-
+         
           }
 .float-box{
             float:right;
             width:300px;
             height:500px;
             margin:30px;
-
+            
             }
 .float-box1{
              float:left;
@@ -272,7 +272,7 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: 1px solid #ccc;
    box-sizing: border-box;
-
+   
 }
 
 button {
@@ -308,7 +308,7 @@ span.psw {
        display: block;
        float: none;
     }
-
+    
 }
 html{
 background:url('hj.jpg') no-repeat center fixed;
@@ -329,7 +329,7 @@ td{
    <h2><li><a href="feedback.php">Feedback</a></li></h2>
    <h2><li><a href="deliveryshow.php">Delivery details</a></li></h2>
    <h2><li><a href="payment.php">Payment</a></li></h2>
-   <h2><li><a href="products.php">Products</a></li></h2>
+   <h2><li><a href="userproduct.php">Products</a></li></h2>
    <h2><li><a href="offersview.php">Offers</a></li></h2>
    <h2><li><a href="myprofile.php">Profile</a></li></h2>
    <h2><li><a href="index.php">Home</a></li></h2>
@@ -351,15 +351,15 @@ include 'logcheck.php';
 
 
 </div>
-    <td ><font color="black">&nbsp;Photo</font></td>
-    <td><font color="black">&nbsp;Firstname</font></td>
-    <td><font color="black">&nbsp;Lastname</font></td>
-     <td><font color="black">&nbsp;Gender</font></td>
-    <td><font color="black">&nbsp;State</font></td>
-    <td><font color="black">&nbsp;District</font></td>
-    <td><font color="black">&nbsp;Place</font></td>
-    <td><font color="black">&nbsp;Pincode</font></td>
-    <td><font color="black">&nbsp;Mobile Number</font></td>
+    
+    
+   
+    
+    
+    
+    
+    
+   
   </tr>
 <?php
 $a=$_SESSION['userid'];
@@ -369,10 +369,14 @@ $results=mysqli_query($con,"select * from tbl_registration where login_id=$a");
 while($row=mysqli_fetch_array($results))
 {
 ?>
-<td><img src="<?php echo $row['image']; ?>" width="75px" height="75px" /></td>
-<td><input name="first_name" type="text" value="<?php echo $row['first_name']; ?>"/></td>
-<td><input name="last_name" type="text" value="<?php echo $row['last_name']; ?>"/></td>
-<td><input name="gender" type="text" value="<?php echo $row['gender']; ?>"/></td>
+<tr><td ><font color="black">&nbsp;Photo</font></td>
+<td><img src="<?php echo $row['image']; ?>" width="75px" height="75px" /></td></tr>
+<tr><td><font color="black">&nbsp;Firstname</font></td>
+<td><input name="first_name" type="text" value="<?php echo $row['first_name']; ?>"/></td></tr>
+ <tr><td><font color="black">&nbsp;Lastname</font></td>
+<td><input name="last_name" type="text" value="<?php echo $row['last_name']; ?>"/></td></tr>
+<tr><td><font color="black">&nbsp;Gender</font></td>
+<td><input name="gender" type="text" value="<?php echo $row['gender']; ?>"/></td></tr>
 <?php
 $a=$row['district'];
 $state="";
@@ -385,13 +389,18 @@ while($row3=mysqli_fetch_array($sql)){
 	$districts=$row3['districts'];
 }
 ?>
-<td><input name="state" type="text" value="<?php echo $state; ?>"/></td>
-<td><input name="district" type="text" value="<?php echo $districts; ?>"/></td>
-<td><input name="place" type="text" value="<?php echo $row['place']; ?>"/></td>
-<td><input name="pincode" type="text" value="<?php echo $row['pincode']; ?>"/></td>
-<td><input name="mobile" type="tel" value="<?php echo $row['mobile']; ?>"/></td>
-<td><a href="profileedit.php?id=<?php echo $row['id'];?>" >Edit</a></td>
-<td><a href="profiledelete.php?id=<?php echo $row['id'];?>">Delete</a></td>
+<tr><td><font color="black">&nbsp;State</font></td>
+<td><input name="state" type="text" value="<?php echo $state; ?>"/></td></tr>
+<tr><td><font color="black">&nbsp;District</font></td>
+<td><input name="district" type="text" value="<?php echo $districts; ?>"/></td></tr>
+<tr><td><font color="black">&nbsp;Place</font></td>
+<td><input name="place" type="text" value="<?php echo $row['place']; ?>"/></td></tr>
+<tr><td><font color="black">&nbsp;Pincode</font></td>
+<td><input name="pincode" type="text" value="<?php echo $row['pincode']; ?>"/></td></tr>
+ <tr><td><font color="black">&nbsp;Mobile Number</font></td>
+<td><input name="mobile" type="tel" value="<?php echo $row['mobile']; ?>"/></td></tr>
+<tr><td><a href="profileedit.php?id=<?php echo $row['id'];?>" >Edit</a></td></tr>
+<tr><td><a href="profiledelete.php?id=<?php echo $row['id'];?>">Delete</a></td></tr>
 </tr>
 <?php } ?>
 </table>

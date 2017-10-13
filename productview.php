@@ -226,11 +226,11 @@ while($row=mysqli_fetch_array($results))
 
 ?>
 <td><img src="<?php echo $row['image']; ?>" width="75px" height="75px" /></td>
-<td><input name="name" type="text" value="<?php echo $row['name']; ?>"/></td>
-<td><input name="brand" type="text" value="<?php echo $row['brand']; ?>"/></td>
-<td><input name="price" type="text" value="<?php echo $row['price']; ?>"/></td>
-<td><input name="rating" type="text" value="<?php echo $row['rating']; ?>"/></td>
-<td><input name="description" type="text" value="<?php echo $row['description']; ?>"/></td>
+<td><?php echo $row['name']; ?></td>
+<td><?php echo $row['brand']; ?></td>
+<td><?php echo $row['price']; ?></td>
+<td><?php echo $row['rating']; ?></td>
+<td><?php echo $row['description']; ?></td>
 <td><a href="productedit.php?id=<?php echo $row['id'];?>" >Edit</a></td>
 <td><a href="productdelete.php?id=<?php echo $row['id'];?>">Delete</a></td>
 </tr>

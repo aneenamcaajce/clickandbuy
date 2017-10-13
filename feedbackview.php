@@ -1,3 +1,6 @@
+<?php 
+include_once "connection.php";
+	?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -195,9 +198,7 @@ float:right;
   <span>&nbsp&nbsp <a href="logout.php">logout</a> </span>
 </div>
 
-<?php 
-include_once "connection.php";
-	?>
+
 
 <table align="center" width="200" border="1">
   <tr><font color="black"<html>
@@ -221,8 +222,8 @@ while($row=mysqli_fetch_array($results))
 {
 
 ?>
-<td><input name="userid" type="text" value="<?php echo $row['userid']; ?>"/></td>
-<td><input name="feedback" type="text" value="<?php echo $row['feedback']; ?>"/></td>
+<td><?php echo $row['userid']; ?></td>
+<td><?php echo $row['feedback']; ?></td>
 <td><a href="feedbackdelete.php?id=<?php echo $row['id'];?>">Delete</a></td>
 </tr>
 <?php } ?>

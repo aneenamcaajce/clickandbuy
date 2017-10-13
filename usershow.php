@@ -1,10 +1,17 @@
+
 <?php 
 include_once "connection.php";
 	?>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 <style>
 body{
 	background-image:url(gh.jpg);
+	background-size:cover;
+}
+
+body {margin:0;}
 a
 {
 	font-size:20px;
@@ -104,10 +111,6 @@ h1 {
     text-shadow: 2px 2px #FF0000;
 }
 p {
-	background-size:cover;
-}
-
-body {margin:0;}
     text-indent: 5px;
 }
 .left {
@@ -157,7 +160,7 @@ float:right;
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>users details</title>
+<title>product details</title>
 </head>
 
 <body>
@@ -172,7 +175,7 @@ float:right;
   <div class="dropdown-content">
 	<a href="offers.php">offers</a>
 		<a href="product.php">products</a>
-        <a href="moderators.php">moderators</a>
+        <a href="moderator.php">moderators</a>
 			<a href="delivery.php">delivery</a>
             <a href="points.php">points</a>
             <a href="winners.php">winners</a>
@@ -195,6 +198,17 @@ float:right;
   </div>
   <span>&nbsp&nbsp <a href="logout.php">logout</a> </span>
 </div>
+
+
+
+<table align="center" width="200" border="1">
+  <tr><font color="black"<html>
+    <head>
+        <title>product view
+        </title>
+    </head>
+
+    <body>
 
 <table align="center" width="200" border="1">
   <tr><font color="black"<html>

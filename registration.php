@@ -21,7 +21,7 @@ $image="image/".time()."".htmlspecialchars($_FILES['image']['name']);
 move_uploaded_file($_FILES['image']['tmp_name'],$image);
 
 $sql1="INSERT INTO `tbl_login`(`userid`, `password`, `usertype`,`status`) VALUES ('$userid','$password','user',0)";
-print_r($sql1);
+//print_r($sql1);
 $result1=mysqli_query($con,$sql1);
 $query=mysqli_query($con,"SELECT * FROM tbl_login WHERE `userid`='$userid'");
 while($row=mysqli_fetch_array($query)){
@@ -40,7 +40,7 @@ mysqli_query($con,"insert into `tbl_points`(`userid`,`points`) values ('$logid',
 <html>
 <head>
 <title>CLICK AND BUY</title>
-<link rel="stylesheet" href="coe.css" type="text/css">
+<!--<link rel="stylesheet" href="coe.css" type="text/css">-->
 <style>
 body {margin:0;}
 .dropbtn {
@@ -347,9 +347,10 @@ span.psw {
     }
     
 }
-html{
-background:url('hj.jpg') no-repeat center fixed;
-background-size:cover;
+
+.error{
+	color:red;
+	margin-left:30px;
 }
 </style>
 </head>
@@ -375,13 +376,14 @@ background-size:cover;
                 <td><input type="file" name="image" id="image"/>
                 </td>
                 </tr>
-<tr><td>FIRST NAME:</td><td><input type="text" name="first_name"  id="first_name"></td></tr>
+<tr><td>FIRST NAME:</td><td><input type="text" name="first_name"  id="first_name"><span class="error" id="first_name_error"></span></td></tr>
 
-<tr><td>LAST NAME:</TD><TD><input type="text" name="last_name" id="last_name"></td></tr>
+<tr><td>LAST NAME:</TD><TD><input type="text" name="last_name" id="last_name"><span class="error" id="last_name_error"></span></td></tr>
 <tr><td></TD><td><FIELDSET><LEGEND>GENDER</LEGEND><input type="radio" name="gender" value="male" checked> Male<br>
   <input type="radio" name="gender" value="female"> Female<br>
   </FIELDSET></td></tr>
-  <tr><td>ADDRESS:</td><td><textarea name="address" rows="3" cols="16" /></textarea></td></tr>
+  <tr><td>ADDRESS:</td><td><textarea name="address" rows="3" cols="16" id="address" />
+  </textarea><span class="error" id="address_error"></span></td></tr>
   <tr><td>STATE:</td>
   <td><select name="state" id="state">
                   <option value="">--select--</option>
@@ -397,14 +399,14 @@ background-size:cover;
                 <tr><td>DISTRICT</td>
                 <td><select name="district" id="district"></select></td></tr>
                 
-  <tr><td>PLACE:</td><td><input type="text" name="place"></td></tr>
-  <tr><td>PINCODE:</td><td><input type="number" name="pincode"  size="30" min="1" id="pincode"></td></tr>
-<tr><td>CONTACT NUMBER</TD><TD><input type="tel" name="mobile" min="1" max="10" id="mobile"></td></tr>
+  <tr><td>PLACE:</td><td><input type="text" name="place" id="place"><span class="error" id="place_error"></span></td></tr>
+  <tr><td>PINCODE:</td><td><input type="number" name="pincode"  size="30" min="1" id="pincode"><span class="error" id="pincode_error"></span></td></tr>
+<tr><td>CONTACT NUMBER</TD><TD><input type="tel" name="mobile" min="1" max="10" id="mobile"><span class="error" id="mobile_error"></span></td></tr>
 
 
-<tr><td>USER ID:</TD><TD><INPUT TYPE="text" NAME="userid" id="userid"></td></tr>
+<tr><td>USER ID:</TD><TD><input  type="text" name="userid" id="userid"><span class="error" id="userid_error"></span></td></tr>
 <tr><td>PASSWORD</td>
-  <td><input type="password" name="password" id="password"/> </td></tr>
+  <td><input type="password" name="password" id="password"/><span class="error" id="password_error"></span> </td></tr>
 <tr>
 <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 &nbsp&nbsp </td>
@@ -418,7 +420,7 @@ background-size:cover;
 	$(document).ready(function(){
 		$("#state").on("change",function(){
 			var state=$(this).val();
-			alert(state);
+			//alert(state);
 			$.ajax( {
 				type:"POST",
 				url:"select_district.php",

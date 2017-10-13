@@ -316,6 +316,10 @@ html{
 background:url('hj.jpg') no-repeat center fixed;
 background-size:cover;
 }
+.div1 {
+	float:left;
+	position:absolute;
+}
 </style>
 </head>
 <body>
@@ -328,12 +332,51 @@ background-size:cover;
    <h2><li><a href="feedback.php">Feedback</a></li></h2>
    <h2><li><a href="deliveryshow.php">Delivery details</a></li></h2>
    <h2><li><a href="payment.php">Payment</a></li></h2>
-   <h2><li><a href="products.php">Products</a></li></h2>
+   <h2><li><a href="userproduct.php">Products</a></li></h2>
    <h2><li><a href="offersview.php">Offers</a></li></h2>
    <h2><li><a href="myprofile.php">Profile</a></li></h2>
    <h2><li><a href="index.php">Home</a></li></h2>
 
 </ul>
+<div class=div1>
+        <?php
+        $a=$_SESSION['userid'];
+        //echo $a;
+        //echo $_SESSION['userid'];
+        $results=mysqli_query($con,"select * from tbl_registration where login_id=$a");
+        while($row=mysqli_fetch_array($results))
+        {
+          ?>
+          <table align="center"  border="1" height="100px">
+            <tr><font color="black"<html>
+              <tr><td ><font color="black">&nbsp;Photo</font></td>
+                <td><img src="<?php echo $row['image']; ?>" width="75px" height="75px" /></td></tr>
+                <tr><td><font color="black">&nbsp;Firstname</font></td>
+                  <td><input name="first_name" type="text" value="<?php echo $row['first_name']; ?>"/></td></tr>
+                  <tr><td><font color="black">&nbsp;Lastname</font></td>
+                    <td><input name="last_name" type="text" value="<?php echo $row['last_name']; ?>"/></td></tr>
+                    <td><font color="black">&nbsp;Gender</font></td>
+                    <td><input name="gender" type="text" value="<?php echo $row['gender']; ?>"/></td></tr>
+                    <tr><td><font color="black">&nbsp;Mobile Number</font></td>
+                      <td><input name="mobile" type="tel" value="<?php echo $row['mobile']; ?>"/></td></tr>
+                      <tr><td>Available points</td>
+                        <td>
+                          <?php
+                          $results1=mysqli_query($con,"select * from tbl_points where userid=$a");
+                          while($row1=mysqli_fetch_array($results1))
+                          {
+                            echo $row1['points'];
+                          }
+
+                          ?>
+
+                        </td>
+                      </tr>
+                    <?php } ?>
+                  </table>
+                  </div>
+                
+               
 <?php
 
 include 'logcheck.php';

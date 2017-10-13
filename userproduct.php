@@ -328,44 +328,47 @@ background-size:cover;
    <h2><li><a href="feedback.php">Feedback</a></li></h2>
    <h2><li><a href="deliveryshow.php">Delivery details</a></li></h2>
    <h2><li><a href="payment.php">Payment</a></li></h2>
-   <h2><li><a href="userproduct.php">Products</a></li></h2>
+   <h2><li><a href="products.php">Products</a></li></h2>
    <h2><li><a href="offersview.php">Offers</a></li></h2>
    <h2><li><a href="myprofile.php">Profile</a></li></h2>
    <h2><li><a href="index.php">Home</a></li></h2>
 
 </ul>
-<?php
+<table align="center" width="200" border="1">
+  <tr><font color="black"<html>
+    <head>
+        <title>product view
+        </title>
+    </head>
 
-include 'logcheck.php';
+    <body>
 
 
-if(!isset($_SESSION["userid"])){
-  header("location: ./");
-}
-if(isset($_POST['pw_change'])){
-		$pww=$_POST['cpassword'];
-		$pw1=$_POST['newpassword'];
-        $pw=$_POST['conpassword'];
-        $userid=$_SESSION["email"];
-        $query=mysqli_query($con,"update `tbl_login` set password='$pw' where userid='$userid' and password='$pww'") or die("Error is".mysqli_error($con));
-		//echo $userid;
-        header('location: ./logout.php');
-}
-?>
 
-<form name="myform" method="post" action ="#">
-<table align="center" >
-<td>
-</td>
-<tr>
-<tr><td><font color="blue">Current Password:</font></td><td><input type="password" name="cpassword" ></td></tr>
-
-<tr><td><font color="blue">New  Password:</font></td><td><input type="password" name="newpassword" ></td></tr>
-<tr><td><font color="blue">Confirm  Password:</font></td><td><input type="password" name="conpassword" ></td></tr>
-<tr><td><input type="submit" name="pw_change"></td></tr>
-</tr>
-</table>
-</form>
 </div>
+    <td><font color="black">&nbsp;Image</font></td>
+    <td><font color="black">&nbsp;Productname</font></td>
+    <td><font color="black">&nbsp;Brand</font></td>
+     <td><font color="black">&nbsp;Actual Price</font></td>
+      <td><font color="black">&nbsp;Rating</font></td>
+    <td><font color="black">&nbsp;Description</font></td>
+  </tr>
+<?php
+$results=mysqli_query($con,"select * from tbl_product");
+while($row=mysqli_fetch_array($results))
+{
+
+?>
+<td><img src="<?php echo $row['image']; ?>" width="75px" height="75px" /></td>
+<td><?php echo $row['name']; ?></td>
+<td><?php echo $row['brand']; ?></td>
+<td><?php echo $row['price']; ?></td>
+<td><?php echo $row['rating']; ?></td>
+<td><?php echo $row['description']; ?></td>
+<td><a href="productedit.php?id=<?php echo $row['id'];?>" >Edit</a></td>
+<td><a href="productdelete.php?id=<?php echo $row['id'];?>">Delete</a></td>
+</tr>
+<?php } ?>
+</table>
 </body>
 </html>

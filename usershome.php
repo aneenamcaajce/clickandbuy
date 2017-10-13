@@ -1,6 +1,12 @@
 <?php
 include 'connection.php';
 include 'logcheck.php';
+$itemid=0;
+$userid=$_SESSION["userid"];
+if(isset($_POST['grub'])){
+  $itemid=$_POST['item_id'];
+  mysqli_query($con,"UPDATE tbl_points SET points=points-1 WHERE userid=$userid");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +21,6 @@ include 'logcheck.php';
     background-color: #4d4d00;
     color: white;
     padding: 10px;
-
     font-size: 10px;
     border: none;
     cursor: pointer;
@@ -160,7 +165,7 @@ include 'logcheck.php';
         <h2><li><a href="feedback.php">Feedback</a></li></h2>
         <h2><li><a href="deliveryshow.php">Delivery details</a></li></h2>
         <h2><li><a href="payment.php">Payment</a></li></h2>
-        <h2><li><a href="productview.php">Products</a></li></h2>
+        <h2><li><a href="userproduct.php">Products</a></li></h2>
         <h2><li><a href="offersview.php">Offers</a></li></h2>
         <h2><li><a href="myprofile.php">Profile</a></li></h2>
         <h2><li><a href="index.php">Home</a></li></h2>
@@ -208,32 +213,48 @@ include 'logcheck.php';
                   $results=mysqli_query($con,"select * from tbl_product,tbl_offers where tbl_product.id=tbl_offers.id");
                   while($row=mysqli_fetch_array($results))
                   {
-
+					  echo "<br><br>";
+					  date_default_timezone_set('Asia/Dhaka');
+					// Then call the date functions
+echo $date = date('Y-m-d H:i:s');;;
+					  echo date('d-m-Y H:i');
+					  $date=$row['enddate'];
+					  
+					  echo "1: ".date( "Y-m-d H:i:s", strtotime($date));
+					  echo "2: ".date("Y-m-d H:i:s");
+					  echo "<br><br>";
+					  $to_time = date( "Y-m-d H:i:s", strtotime($date));
+					  echo $to=strtotime($to_time);
+					  echo "<br>";
+					  $from_time = date("Y-m-d H:i:s");
+					  echo $from =strtotime($from_time);
+					  $time=$to-$from;
+					  echo "sec".$time;
                     ?>
-                    <div class="offer_items" style="display:inline-block; margin:5px;">
-                      <table align="center" border="1" >
-                        <tr><font color="black"<html>
-                          <tr>
-                            <td colspan="2"><img src="<?php echo $row['image']; ?>" width="200px" height="150px" /></td></tr>
-                            <tr><td><font color="black">&nbsp;Productname</font></td>
-                              <td><?php echo $row['name']; ?></td></tr>
-                              <tr><td><font color="black">&nbsp;Actual Price</font></td>
-                                <td><?php echo $row['price']; ?></td>
-                              </tr>
-
-                              <tr><td><font color="black">&nbsp;Ends in</font></td>
-                                <td>12 : 00</td>
-                              </tr>
-                              <tr><td colspan="2">
-                                <input type="submit" name="grub" value="GRAB"></td>
-                              </tr>
-                            </font>
-                          </tr>
-                        </table>
+                    <div class="offer_items" id="offer_items" style="display:inline-block; margin:5px;">
+                      <form action="" method="post">
+                        <table align="center" border="1" >
+                          <tr><font color="black"<html>
+                            <tr>
+                              <td colspan="2"><img src="<?php echo $row['image']; ?>" width="200px" height="150px" /></td></tr>
+                              <tr><td><font color="black">&nbsp;Productname</font></td>
+                                <td><?php echo $row['name']; ?></td></tr>
+                                <tr><td><font color="black">&nbsp;Actual Price</font></td>
+                                  <td><?php echo $row['price']; ?></td>
+                                </tr>
+                                <input type="hidden" name="item_id" value="<?php echo $row['id']; ?>">
+                                <tr><td><font color="black">&nbsp;Ends in</font></td>
+                                  <td><span id="countdowntimer">10 </span>:<span id="countdowntimer2">10 </span> Seconds</td>
+                                </tr>
+                                <tr><td colspan="2">
+                                <input type="submit" name="grub" id="grub" class="grub" value="GRAB" ></td>
+                              </td></tr>
+                              </font>
+                            </tr>
+                          </table>
+                        </form>
                       </div>
-
                     <?php } ?>
-                    <p> Ends in <span id="countdowntimer">10 </span>:<span id="countdowntimer2">10 </span> Seconds</p>
 
                     <script type="text/javascript">
                     var timeleft = 121;
@@ -243,9 +264,19 @@ include 'logcheck.php';
                       document.getElementById("countdowntimer2").textContent = timeleft%60;
                       if(timeleft <= 0){
                         clearInterval(downloadTimer);
-
                       }
                     },1000);
-
                     </script>
+                    <script src="jquery-3.2.1.min.js"></script>
+                    <!-- <script>
+                    $(document).ready(function() {
+                      $('.offer_items').each(function(index){
+                        $(this).click(function(){
+                          $(this).children('.grub').click();
+                          $(this).parent().submit();
+                          //alert("asd");
+                        });
+                      });
+                    });
+                    </script> -->
                   </div>
